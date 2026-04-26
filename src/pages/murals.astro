@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Content, { frontmatter } from '../content/pages/murals.md';
+---
+
+<BaseLayout title={frontmatter.title}>
+  <section class="editorial-split">
+    <div>
+      <div class="media-frame no-crop">
+        <img src="/images/murals/cope-home-mural-art.jpg" alt="Keith working on a mural design and the finished mural artwork" />
+      </div>
+    </div>
+
+    <div>
+      <p class="meta-line">Southampton, UK</p>
+      <h1>{frontmatter.title}</h1>
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

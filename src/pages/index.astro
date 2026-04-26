@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { frontmatter } from '../content/pages/home.md';
+---
+
+<BaseLayout title={frontmatter.title}>
+  <div class="home-stack">
+    <section class="text-hero">
+      <p class="eyebrow">COPE | Where chaos finds form</p>
+      <h1>{frontmatter.heroHeading}</h1>
+      <p class="hero-note">{frontmatter.intro}</p>
+
+      <div class="button-row">
+        <a class="button primary" href={frontmatter.heroPrimaryCtaHref}>{frontmatter.heroPrimaryCtaLabel}</a>
+        <a class="button secondary" href={frontmatter.heroSecondaryCtaHref}>{frontmatter.heroSecondaryCtaLabel}</a>
+      </div>
+    </section>
+
+    <section class="editorial-split">
+      <div>
+        <div class="media-frame portrait-art">
+          <img src="/images/artworks/cope-always.jpg" alt="COPE original artwork in a styled interior" />
+        </div>
+      </div>
+
+      <div>
+        <p class="meta-line">Featured piece</p>
+        <h2>{frontmatter.artImpactHeading}</h2>
+        <p class="section-intro">{frontmatter.artImpactBodyOne}</p>
+        <p>{frontmatter.artImpactBodyTwo}</p>
+        <p>
+          <a class="button secondary" href="/shop/">Explore original work</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="editorial-split">
+      <div>
+        <div class="media-frame studio-art no-crop">
+          <img src="/images/murals/cope-murals.jpg" alt="Keith working on a mural in progress" />
+        </div>
+      </div>
+
+      <div>
+        <p class="meta-line">Southampton, UK</p>
+        <h2>{frontmatter.muralsHeading}</h2>
+        <p class="section-intro">{frontmatter.muralsBodyOne}</p>
+        <p>{frontmatter.muralsBodyTwo}</p>
+        <p>
+          <a class="button secondary" href="/murals">View mural work</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="editorial-split">
+      <div>
+        <div class="media-frame studio-art">
+          <img src="/images/artworks/cope-original-paintings.jpg" alt="Keith working on an original painting in the studio" />
+        </div>
+      </div>
+
+      <div class="section-card">
+        <p class="meta-line">Launch collection</p>
+        <h2>Original paintings</h2>
+        <p class="section-intro">
+          Start with the first small selection of framed works, then grow the collection steadily as more pieces are
+          finished and photographed.
+        </p>
+        <p>The first release should feel considered and art-led, with each piece given room to stand on its own.</p>
+        <p>
+          <a class="button secondary" href="/shop/">Browse the launch shop</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="mini-grid">
+      <div class="section-card compact-card">
+        <p class="meta-line">Custom work</p>
+        <h3>{frontmatter.commissionsHeading}</h3>
+        <p>{frontmatter.commissionsBody}</p>
+        <p><a class="button secondary" href="/commissions">See commissions</a></p>
+      </div>
+
+      <div class="section-card compact-card">
+        <p class="meta-line">Coming next</p>
+        <h3>{frontmatter.apparelHeading}</h3>
+        <p>{frontmatter.apparelBody}</p>
+        <p><a class="button secondary" href="/shop/">View the shop</a></p>
+      </div>
+
+      <div class="section-card compact-card">
+        <p class="meta-line">Our Story</p>
+        <h3>{frontmatter.journalHeading}</h3>
+        <p>{frontmatter.journalBody}</p>
+        <p><a class="button secondary" href="/journal/">Read the journal</a></p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

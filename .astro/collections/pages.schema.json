@@ -1,0 +1,81 @@
+{
+  "$ref": "#/definitions/pages",
+  "definitions": {
+    "pages": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "heroHeading": {
+          "type": "string"
+        },
+        "heroPrimaryCtaLabel": {
+          "type": "string"
+        },
+        "heroPrimaryCtaHref": {
+          "type": "string"
+        },
+        "heroSecondaryCtaLabel": {
+          "type": "string"
+        },
+        "heroSecondaryCtaHref": {
+          "type": "string"
+        },
+        "intro": {
+          "type": "string"
+        },
+        "ctaLabel": {
+          "type": "string"
+        },
+        "ctaHref": {
+          "type": "string"
+        },
+        "artImpactHeading": {
+          "type": "string"
+        },
+        "artImpactBodyOne": {
+          "type": "string"
+        },
+        "artImpactBodyTwo": {
+          "type": "string"
+        },
+        "muralsHeading": {
+          "type": "string"
+        },
+        "muralsBodyOne": {
+          "type": "string"
+        },
+        "muralsBodyTwo": {
+          "type": "string"
+        },
+        "commissionsHeading": {
+          "type": "string"
+        },
+        "commissionsBody": {
+          "type": "string"
+        },
+        "apparelHeading": {
+          "type": "string"
+        },
+        "apparelBody": {
+          "type": "string"
+        },
+        "journalHeading": {
+          "type": "string"
+        },
+        "journalBody": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,49 @@
+{
+  "$ref": "#/definitions/products",
+  "definitions": {
+    "products": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "medium": {
+          "type": "string"
+        },
+        "dimensions": {
+          "type": "string"
+        },
+        "framing": {
+          "type": "string"
+        },
+        "primaryImage": {
+          "type": "string"
+        },
+        "enquiryType": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "price",
+        "status",
+        "medium",
+        "dimensions",
+        "framing",
+        "primaryImage",
+        "enquiryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

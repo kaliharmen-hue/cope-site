@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Content, { frontmatter } from '../content/pages/commissions.md';
+---
+
+<BaseLayout title={frontmatter.title}>
+  <h1>{frontmatter.title}</h1>
+  <Content />
+</BaseLayout>
