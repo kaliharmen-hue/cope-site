@@ -384,6 +384,11 @@ const navItems = [
         padding: 0.25rem 0;
       }
 
+      :global(.success-panel[hidden]),
+      :global(.form-error[hidden]) {
+        display: none !important;
+      }
+
       @media (min-width: 640px) {
         :global(.editorial-split) {
           grid-template-columns: 190px minmax(0, 1fr);
