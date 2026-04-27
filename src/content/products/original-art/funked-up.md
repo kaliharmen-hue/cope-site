@@ -2,8 +2,8 @@
 title: Funked Up
 price: "TBC"
 status: Available
-medium: "TBC"
-dimensions: "TBC"
+medium: Acrylic
+dimensions: 82 x 82cm
 framing: Framed
 primaryImage: "/images/artworks/funked-up-artwork.png"
 imageAlt: "Funked Up framed artwork on a clean background"
@@ -17,4 +17,4 @@ galleryImages:
 enquiryType: Original Art
 ---
 
-Original framed work shown as both a clean artwork image and a styled in-room example.
+Funked Up has a tighter, punchier feel, with strong contrast and a square format that works beautifully as a feature piece. It has that mix of street influence and playful confidence that makes it easy to place in a home, studio, or workspace while still feeling distinctive and art-led.

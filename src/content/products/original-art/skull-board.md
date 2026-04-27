@@ -2,8 +2,8 @@
 title: Skull Board
 price: "TBC"
 status: Available
-medium: "TBC"
-dimensions: "TBC"
+medium: Acrylic
+dimensions: 70 x 80cm
 framing: Framed
 primaryImage: "/images/artworks/cope-always-artwork.png"
 imageAlt: "COPE Always original artwork on a clean white background"
@@ -17,4 +17,4 @@ galleryImages:
 enquiryType: Original Art
 ---
 
-Short description for the first framed artwork.
+Skull Board is a punchy statement piece that pairs bright colour with COPE's sharp street-art edge. The oversized gold frame and hot pink ground give it real presence, making it ideal for a room that needs energy, attitude, and a focal point that won’t disappear into the background.

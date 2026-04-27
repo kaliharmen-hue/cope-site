@@ -2,8 +2,8 @@
 title: Basketball Flow
 price: "TBC"
 status: Available
-medium: "TBC"
-dimensions: "TBC"
+medium: Acrylic
+dimensions: 79.5 x 105cm
 framing: Framed
 primaryImage: "/images/artworks/basketball-flow-artwork.jpg"
 imageAlt: "Basketball Flow framed artwork on a white background"
@@ -17,4 +17,4 @@ galleryImages:
 enquiryType: Original Art
 ---
 
-Bright, character-led original work shown both as a clean artwork image and in a styled interior setting.
+Basketball Flow brings movement, colour, and character together in a way that feels playful but still bold. The neon palette and graphic figure make it a strong conversation piece, especially for creative interiors where you want the artwork to feel lively, modern, and unmistakably individual.
