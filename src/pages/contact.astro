@@ -34,7 +34,7 @@ import { frontmatter } from '../content/pages/contact.md';
       <section class="section-card compact-card">
         <p class="meta-line">Enquiry form</p>
         <h2>Start an enquiry</h2>
-        <form class="site-form" method="POST" action="https://formspree.io/f/maqazbgk">
+        <form id="contact-form" class="site-form" method="POST" action="https://formspree.io/f/maqazbgk">
           <div class="field-row">
             <div class="field">
               <label for="name">Name</label>
@@ -78,10 +78,78 @@ import { frontmatter } from '../content/pages/contact.md';
           </div>
 
           <div class="button-row">
-            <button class="button primary" type="submit">Send enquiry</button>
+            <button id="contact-submit" class="button primary" type="submit">Send enquiry</button>
           </div>
+
+          <p id="contact-error" class="form-error" hidden></p>
         </form>
+
+        <div id="contact-success" class="success-panel" hidden>
+          <p class="meta-line">Thank you</p>
+          <h2>Your enquiry has been sent.</h2>
+          <p>We have received your message and COPE Team will come back to you as soon as possible.</p>
+          <div class="button-row">
+            <a class="button primary" href="/">Back to the website</a>
+            <button id="contact-reset" class="button secondary" type="button">Send another enquiry</button>
+          </div>
+        </div>
       </section>
     </div>
   </section>
+
+  <script is:inline>
+    const form = document.getElementById('contact-form');
+    const submitButton = document.getElementById('contact-submit');
+    const errorBox = document.getElementById('contact-error');
+    const successPanel = document.getElementById('contact-success');
+    const resetButton = document.getElementById('contact-reset');
+
+    if (form && submitButton && errorBox && successPanel && resetButton) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        errorBox.hidden = true;
+        errorBox.textContent = '';
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+              Accept: 'application/json',
+            },
+          });
+
+          if (response.ok) {
+            form.reset();
+            form.hidden = true;
+            successPanel.hidden = false;
+            successPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+          }
+
+          const result = await response.json().catch(() => null);
+          errorBox.textContent =
+            result?.errors?.[0]?.message || 'Something went wrong while sending the form. Please try again.';
+          errorBox.hidden = false;
+        } catch (error) {
+          errorBox.textContent = 'There was a connection problem. Please try again in a moment.';
+          errorBox.hidden = false;
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send enquiry';
+        }
+      });
+
+      resetButton.addEventListener('click', () => {
+        successPanel.hidden = true;
+        form.hidden = false;
+        errorBox.hidden = true;
+        errorBox.textContent = '';
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  </script>
 </BaseLayout>
