@@ -28,8 +28,8 @@ import { frontmatter } from '../content/pages/contact.md';
       </section>
 
       <section class="section-card compact-card">
-        <p class="meta-line">Enquiry form</p>
-        <h2>Start an enquiry</h2>
+        <p id="contact-kicker" class="meta-line">Enquiry form</p>
+        <h2 id="contact-heading">Start an enquiry</h2>
         <form id="contact-form" class="site-form" method="POST" action="https://formspree.io/f/maqazbgk">
           <div class="field-row">
             <div class="field">
@@ -74,8 +74,7 @@ import { frontmatter } from '../content/pages/contact.md';
         </form>
 
         <div id="contact-success" class="success-panel" hidden style="display: none;">
-          <p class="meta-line">Thank you</p>
-          <h2>Your enquiry has been sent.</h2>
+          <h2>Thank you</h2>
           <p>We have received your message and COPE Team will come back to you as soon as possible.</p>
           <div class="button-row">
             <a class="button primary" href="/">Back to home page</a>
@@ -92,8 +91,10 @@ import { frontmatter } from '../content/pages/contact.md';
     const errorBox = document.getElementById('contact-error');
     const successPanel = document.getElementById('contact-success');
     const resetButton = document.getElementById('contact-reset');
+    const contactHeading = document.getElementById('contact-heading');
+    const contactKicker = document.getElementById('contact-kicker');
 
-    if (form && submitButton && errorBox && successPanel && resetButton) {
+    if (form && submitButton && errorBox && successPanel && resetButton && contactHeading && contactKicker) {
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -115,6 +116,8 @@ import { frontmatter } from '../content/pages/contact.md';
             form.reset();
             form.hidden = true;
             form.style.display = 'none';
+            contactHeading.hidden = true;
+            contactKicker.hidden = true;
             successPanel.hidden = false;
             successPanel.style.display = 'grid';
             successPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -139,6 +142,8 @@ import { frontmatter } from '../content/pages/contact.md';
         successPanel.style.display = 'none';
         form.hidden = false;
         form.style.display = 'grid';
+        contactHeading.hidden = false;
+        contactKicker.hidden = false;
         errorBox.hidden = true;
         errorBox.textContent = '';
         form.scrollIntoView({ behavior: 'smooth', block: 'start' });
