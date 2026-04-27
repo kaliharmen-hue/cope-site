@@ -1,5 +1,5 @@
 ---
-title: Artwork One
+title: Skull Board
 price: "TBC"
 status: Available
 medium: "TBC"
