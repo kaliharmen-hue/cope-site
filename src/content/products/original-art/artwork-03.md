@@ -1,16 +1,20 @@
 ---
-title: Artwork Three
+title: Funked Up
 price: "TBC"
 status: Available
 medium: "TBC"
 dimensions: "TBC"
 framing: Framed
-primaryImage: "/images/artworks/cope-original-paintings.jpg"
-imageAlt: "Keith working on an original painting in the studio"
+primaryImage: "/images/artworks/funked-up-artwork.png"
+imageAlt: "Funked Up framed artwork on a clean background"
 galleryImages:
-  - src: "/images/artworks/cope-original-paintings.jpg"
-    alt: "Keith working on an original painting in the studio"
+  - src: "/images/artworks/funked-up-artwork.png"
+    alt: "Funked Up framed artwork on a clean background"
+    caption: "Artwork view"
+  - src: "/images/artworks/funked-up-room.png"
+    alt: "Funked Up artwork shown in a styled room"
+    caption: "In-room view"
 enquiryType: Original Art
 ---
 
-Short description for the third framed artwork.
+Original framed work shown as both a clean artwork image and a styled in-room example.
