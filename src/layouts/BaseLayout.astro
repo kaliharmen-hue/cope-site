@@ -254,6 +254,11 @@ const navItems = [
         gap: 1rem;
       }
 
+      :global(.shop-grid) {
+        display: grid;
+        gap: 1rem;
+      }
+
       :global(.media-frame) {
         overflow: hidden;
         border-radius: 18px;
@@ -327,6 +332,109 @@ const navItems = [
 
       :global(.section-intro) {
         max-width: 60ch;
+      }
+
+      :global(.shop-card) {
+        padding: 0.8rem;
+      }
+
+      :global(.shop-card-link) {
+        display: grid;
+        gap: 0.85rem;
+        text-decoration: none;
+      }
+
+      :global(.shop-art) {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        max-height: 19rem;
+      }
+
+      :global(.shop-copy) {
+        display: grid;
+        gap: 0.18rem;
+      }
+
+      :global(.shop-copy h2) {
+        font-size: 1.45rem;
+        margin-bottom: 0.25rem;
+      }
+
+      :global(.shop-link-note) {
+        margin-top: 0.4rem;
+        color: var(--accent-dark);
+      }
+
+      :global(.product-stack) {
+        display: grid;
+        gap: 1rem;
+      }
+
+      :global(.back-link) {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      :global(.back-link:hover) {
+        color: var(--text);
+      }
+
+      :global(.product-layout) {
+        display: grid;
+        gap: 1rem;
+      }
+
+      :global(.product-gallery) {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      :global(.product-main-image) {
+        width: 100%;
+        min-height: 22rem;
+      }
+
+      :global(.product-main-image img) {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #f4efe7;
+      }
+
+      :global(.product-thumbnails) {
+        display: grid;
+        gap: 0.8rem;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      }
+
+      :global(.thumb-button) {
+        display: grid;
+        gap: 0.3rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      :global(.thumb-button.is-active .thumb-frame) {
+        border-color: rgba(222, 90, 42, 0.75);
+        box-shadow: 0 0 0 2px rgba(222, 90, 42, 0.12);
+      }
+
+      :global(.thumb-frame) {
+        aspect-ratio: 1 / 1;
+      }
+
+      :global(.thumb-frame img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      :global(.thumb-caption) {
+        font-size: 0.88rem;
+        color: var(--muted);
       }
 
       :global(.site-form) {
@@ -421,12 +529,21 @@ const navItems = [
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
+        :global(.shop-grid) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
         :global(.brand-hero-image) {
           min-height: 21rem;
         }
 
         :global(.contact-grid) {
           grid-template-columns: 0.9fr 1.1fr;
+          align-items: start;
+        }
+
+        :global(.product-layout) {
+          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
           align-items: start;
         }
 

@@ -5,7 +5,11 @@ status: Available
 medium: "TBC"
 dimensions: "TBC"
 framing: Framed
-primaryImage: "/images/artworks/artwork-01.jpg"
+primaryImage: "/images/artworks/cope-always.jpg"
+imageAlt: "COPE Always original artwork in a styled interior"
+galleryImages:
+  - src: "/images/artworks/cope-always.jpg"
+    alt: "COPE Always original artwork in a styled interior"
 enquiryType: Original Art
 ---
 

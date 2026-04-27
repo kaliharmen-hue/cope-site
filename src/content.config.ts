@@ -37,6 +37,16 @@ const products = defineCollection({
     dimensions: z.string(),
     framing: z.string(),
     primaryImage: z.string(),
+    imageAlt: z.string().optional(),
+    galleryImages: z
+      .array(
+        z.object({
+          src: z.string(),
+          alt: z.string(),
+          caption: z.string().optional(),
+        }),
+      )
+      .optional(),
     enquiryType: z.string(),
   }),
 });

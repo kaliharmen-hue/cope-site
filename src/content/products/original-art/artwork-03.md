@@ -5,7 +5,11 @@ status: Available
 medium: "TBC"
 dimensions: "TBC"
 framing: Framed
-primaryImage: "/images/artworks/artwork-03.jpg"
+primaryImage: "/images/artworks/cope-original-paintings.jpg"
+imageAlt: "Keith working on an original painting in the studio"
+galleryImages:
+  - src: "/images/artworks/cope-original-paintings.jpg"
+    alt: "Keith working on an original painting in the studio"
 enquiryType: Original Art
 ---
 
