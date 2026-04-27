@@ -32,7 +32,6 @@ import { frontmatter } from '../content/pages/home.md';
       </div>
 
       <div>
-        <p class="meta-line">Featured piece</p>
         <h2>{frontmatter.artImpactHeading}</h2>
         <p class="section-intro">{frontmatter.artImpactBodyOne}</p>
         <p>{frontmatter.artImpactBodyTwo}</p>
@@ -50,7 +49,6 @@ import { frontmatter } from '../content/pages/home.md';
       </div>
 
       <div>
-        <p class="meta-line">Southampton, UK</p>
         <h2>{frontmatter.muralsHeading}</h2>
         <p class="section-intro">{frontmatter.muralsBodyOne}</p>
         <p>{frontmatter.muralsBodyTwo}</p>
@@ -68,27 +66,22 @@ import { frontmatter } from '../content/pages/home.md';
       </div>
 
       <div class="section-card">
-        <p class="meta-line">Launch collection</p>
-        <h2>Original paintings</h2>
+        <h2>{frontmatter.commissionsHeading}</h2>
         <p class="section-intro">
-          Start with the first small selection of framed works, then grow the collection steadily as more pieces are
-          finished and photographed.
+          Selected commissions are available for people who want something personal, original, and built with the same
+          colour-led COPE approach that shapes the rest of the work.
         </p>
-        <p>The first release should feel considered and art-led, with each piece given room to stand on its own.</p>
         <p>
-          <a class="button secondary" href="/shop/">Browse the launch shop</a>
+          Whether it is for a home, studio, workspace, or a gift with real presence, each commission is treated as a
+          one-off piece rather than something generic.
+        </p>
+        <p>
+          <a class="button secondary" href="/commissions">See commissions</a>
         </p>
       </div>
     </section>
 
     <section class="mini-grid">
-      <div class="section-card compact-card">
-        <p class="meta-line">Custom work</p>
-        <h3>{frontmatter.commissionsHeading}</h3>
-        <p>{frontmatter.commissionsBody}</p>
-        <p><a class="button secondary" href="/commissions">See commissions</a></p>
-      </div>
-
       <div class="section-card compact-card">
         <p class="meta-line">Coming next</p>
         <h3>{frontmatter.apparelHeading}</h3>
