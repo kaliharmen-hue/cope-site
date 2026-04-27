@@ -17,4 +17,4 @@ galleryImages:
 enquiryType: Original Art
 ---
 
-Funked Up has a tighter, punchier feel, with strong contrast and a square format that works beautifully as a feature piece. It has that mix of street influence and playful confidence that makes it easy to place in a home, studio, or workspace while still feeling distinctive and art-led.
+Funked Up is the kind of piece that will make you smile every time you see it. Its square format works beautifully as a feature piece, with a mix of street influence and playful confidence that makes it easy to place in a home, studio, or workspace while still feeling distinctive and art-led.
