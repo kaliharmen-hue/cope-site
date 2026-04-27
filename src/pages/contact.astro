@@ -78,7 +78,7 @@ import { frontmatter } from '../content/pages/contact.md';
           <h2>Your enquiry has been sent.</h2>
           <p>We have received your message and COPE Team will come back to you as soon as possible.</p>
           <div class="button-row">
-            <a class="button primary" href="/">Back to the website</a>
+            <a class="button primary" href="/">Back to home page</a>
             <button id="contact-reset" class="button secondary" type="button">Send another enquiry</button>
           </div>
         </div>
@@ -114,6 +114,7 @@ import { frontmatter } from '../content/pages/contact.md';
           if (response.ok) {
             form.reset();
             form.hidden = true;
+            form.style.display = 'none';
             successPanel.hidden = false;
             successPanel.style.display = 'grid';
             successPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -137,6 +138,7 @@ import { frontmatter } from '../content/pages/contact.md';
         successPanel.hidden = true;
         successPanel.style.display = 'none';
         form.hidden = false;
+        form.style.display = 'grid';
         errorBox.hidden = true;
         errorBox.textContent = '';
         form.scrollIntoView({ behavior: 'smooth', block: 'start' });
