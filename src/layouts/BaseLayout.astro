@@ -291,6 +291,16 @@ const navItems = [
         gap: 0.35rem;
       }
 
+      :global(.contact-stack) {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      :global(.contact-grid) {
+        display: grid;
+        gap: 1rem;
+      }
+
       :global(.meta-line) {
         font-size: 0.9rem;
         letter-spacing: 0.08em;
@@ -302,15 +312,81 @@ const navItems = [
         max-width: 60ch;
       }
 
+      :global(.site-form) {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      :global(.field-row) {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      :global(.field) {
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      :global(.field label) {
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+
+      :global(.field input),
+      :global(.field select),
+      :global(.field textarea) {
+        width: 100%;
+        padding: 0.85rem 0.95rem;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--text);
+        font: inherit;
+      }
+
+      :global(.field textarea) {
+        resize: vertical;
+        min-height: 10rem;
+      }
+
+      :global(.field input:focus),
+      :global(.field select:focus),
+      :global(.field textarea:focus) {
+        outline: 2px solid rgba(222, 90, 42, 0.18);
+        border-color: var(--accent);
+      }
+
+      :global(.form-note) {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      :global(.form-trap) {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
       @media (min-width: 640px) {
         :global(.editorial-split) {
           grid-template-columns: 190px minmax(0, 1fr);
+        }
+
+        :global(.field-row) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
       @media (min-width: 760px) {
         :global(.mini-grid) {
           grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        :global(.contact-grid) {
+          grid-template-columns: 0.9fr 1.1fr;
+          align-items: start;
         }
 
         .page-card {
