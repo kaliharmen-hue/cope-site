@@ -92,6 +92,32 @@ const navItems = [
         gap: 0.85rem;
       }
 
+      .menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 2.9rem;
+        height: 2.9rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 252, 247, 0.92);
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .menu-toggle-bar {
+        display: block;
+        width: 1.1rem;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        transition: transform 140ms ease, opacity 140ms ease;
+      }
+
+      .menu-toggle-bar + .menu-toggle-bar {
+        margin-top: 0.22rem;
+      }
+
       .nav a {
         text-decoration: none;
         color: var(--muted);
@@ -558,13 +584,68 @@ const navItems = [
           padding: 1.6rem;
         }
       }
+
+      @media (max-width: 759px) {
+        .header-inner {
+          align-items: center;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+        }
+
+        .nav {
+          display: none;
+          width: 100%;
+          padding-top: 0.25rem;
+          flex-direction: column;
+          gap: 0.55rem;
+        }
+
+        .site-header.is-open .nav {
+          display: flex;
+        }
+
+        .site-header.is-open .menu-toggle-bar:nth-child(1) {
+          transform: translateY(4px) rotate(45deg);
+        }
+
+        .site-header.is-open .menu-toggle-bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .site-header.is-open .menu-toggle-bar:nth-child(3) {
+          transform: translateY(-4px) rotate(-45deg);
+        }
+
+        :global(.brand-hero-image) {
+          min-height: 11rem;
+        }
+
+        :global(.brand-hero-image img) {
+          object-fit: contain;
+          background: #fbf7f1;
+        }
+      }
     </style>
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header" id="site-header">
       <div class="header-inner">
         <a class="brand" href="/">COPE</a>
-        <nav class="nav" aria-label="Main navigation">
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+        </button>
+        <nav class="nav" id="site-nav" aria-label="Main navigation">
           {navItems.map((item) => (
             <a href={item.href}>{item.label}</a>
           ))}
@@ -581,5 +662,25 @@ const navItems = [
     <footer class="site-footer">
       <p>COPE. Where chaos finds form. Based in Southampton, UK.</p>
     </footer>
+
+    <script is:inline>
+      const header = document.getElementById('site-header');
+      const menuToggle = document.getElementById('menu-toggle');
+      const siteNav = document.getElementById('site-nav');
+
+      if (header && menuToggle && siteNav) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = header.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        siteNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            header.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    </script>
   </body>
 </html>
