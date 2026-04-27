@@ -589,6 +589,7 @@ const navItems = [
       @media (max-width: 759px) {
         .header-inner {
           align-items: center;
+          position: relative;
         }
 
         .menu-toggle {
@@ -597,10 +598,22 @@ const navItems = [
 
         .nav {
           display: none;
-          width: 100%;
-          padding-top: 0.25rem;
+          position: absolute;
+          top: calc(100% + 0.75rem);
+          left: 0;
+          right: 0;
+          z-index: 20;
+          padding: 1rem;
+          border: 1px solid var(--line);
+          border-radius: 22px;
+          background: rgba(255, 252, 247, 0.98);
+          box-shadow: 0 18px 34px rgba(23, 20, 18, 0.08);
           flex-direction: column;
           gap: 0.55rem;
+        }
+
+        .nav a {
+          padding: 0.15rem 0;
         }
 
         .site-header.is-open .nav {
