@@ -5,8 +5,17 @@ import { frontmatter } from '../content/pages/home.md';
 
 <BaseLayout title={frontmatter.title}>
   <div class="home-stack">
+    <section class="brand-hero">
+      <div class="media-frame brand-hero-image">
+        <img
+          src="/images/brand/cope-style-where-chaos-finds-form.jpg"
+          alt="COPE brand artwork with the line Where chaos finds form"
+        />
+      </div>
+    </section>
+
     <section class="text-hero">
-      <p class="eyebrow">COPE | Where chaos finds form</p>
+      <p class="eyebrow">COPE | Southampton, UK</p>
       <h1>{frontmatter.heroHeading}</h1>
       <p class="hero-note">{frontmatter.intro}</p>
 

@@ -213,6 +213,23 @@ const navItems = [
         padding: 0.35rem 0 0.7rem;
       }
 
+      :global(.brand-hero) {
+        margin-bottom: 0.2rem;
+      }
+
+      :global(.brand-hero-image) {
+        width: 100%;
+        min-height: 16rem;
+        border-radius: 26px;
+      }
+
+      :global(.brand-hero-image img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
       :global(.hero-note) {
         max-width: 54ch;
         font-size: 1.12rem;
@@ -402,6 +419,10 @@ const navItems = [
       @media (min-width: 760px) {
         :global(.mini-grid) {
           grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        :global(.brand-hero-image) {
+          min-height: 21rem;
         }
 
         :global(.contact-grid) {
