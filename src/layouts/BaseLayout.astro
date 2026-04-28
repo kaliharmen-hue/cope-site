@@ -287,6 +287,12 @@ const navItems = [
         gap: 1rem;
       }
 
+      :global(.shop-section) {
+        display: grid;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
       :global(.media-frame) {
         overflow: hidden;
         border-radius: 18px;
@@ -382,6 +388,16 @@ const navItems = [
       :global(.shop-art img) {
         object-fit: contain;
         background: #ffffff;
+      }
+
+      :global(.shop-apparel-art) {
+        min-height: 19rem;
+        max-height: 19rem;
+        background: #f7f1e8;
+      }
+
+      :global(.shop-apparel-art img) {
+        background: #f7f1e8;
       }
 
       :global(.shop-copy) {
