@@ -27,15 +27,15 @@ const firstImage = galleryImages[0];
     <div class="product-layout">
       <section class="section-card compact-card">
         <div class="product-gallery">
-          <a
+          <button
+            type="button"
             id="product-main-link"
             class="media-frame product-main-image"
-            href={firstImage.src}
-            target="_blank"
-            rel="noreferrer"
+            data-lightbox-trigger
+            aria-label="Open larger artwork image"
           >
             <img id="product-main-image" src={firstImage.src} alt={firstImage.alt} />
-          </a>
+          </button>
 
           {galleryImages.length > 1 && (
             <div class="product-thumbnails" aria-label="Artwork gallery">
@@ -69,9 +69,19 @@ const firstImage = galleryImages[0];
         <Content />
         <div class="button-row">
           <a class="button primary" href="/contact">Enquire about this piece</a>
-          <a class="button secondary" href={firstImage.src} target="_blank" rel="noreferrer">Open larger image</a>
+          <button type="button" class="button secondary" id="open-lightbox-button">Open larger image</button>
         </div>
       </section>
+    </div>
+  </div>
+
+  <div class="lightbox" id="artwork-lightbox" hidden>
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label={`Larger view of ${artwork.data.title}`}>
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close larger image view">×</button>
+      <div class="lightbox-frame">
+        <img id="lightbox-image" src={firstImage.src} alt={firstImage.alt} />
+      </div>
     </div>
   </div>
 
@@ -79,6 +89,51 @@ const firstImage = galleryImages[0];
     const mainImage = document.getElementById('product-main-image');
     const mainLink = document.getElementById('product-main-link');
     const thumbButtons = document.querySelectorAll('.thumb-button');
+    const lightbox = document.getElementById('artwork-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const openLightboxButton = document.getElementById('open-lightbox-button');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxCloseElements = document.querySelectorAll('[data-lightbox-close]');
+
+    const openLightbox = () => {
+      if (!lightbox || !lightboxImage || !mainImage) return;
+
+      lightboxImage.setAttribute('src', mainImage.getAttribute('src') || '');
+      lightboxImage.setAttribute('alt', mainImage.getAttribute('alt') || '');
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+
+      lightbox.hidden = true;
+      document.body.style.overflow = '';
+    };
+
+    if (mainLink) {
+      mainLink.addEventListener('click', openLightbox);
+    }
+
+    if (openLightboxButton) {
+      openLightboxButton.addEventListener('click', openLightbox);
+    }
+
+    if (lightboxCloseElements.length) {
+      lightboxCloseElements.forEach((element) => {
+        element.addEventListener('click', closeLightbox);
+      });
+    }
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox && !lightbox.hidden) {
+        closeLightbox();
+      }
+    });
 
     if (mainImage && mainLink && thumbButtons.length) {
       thumbButtons.forEach((button) => {
@@ -89,7 +144,10 @@ const firstImage = galleryImages[0];
 
           mainImage.setAttribute('src', src);
           mainImage.setAttribute('alt', alt);
-          mainLink.setAttribute('href', src);
+          if (lightboxImage) {
+            lightboxImage.setAttribute('src', src);
+            lightboxImage.setAttribute('alt', alt);
+          }
 
           thumbButtons.forEach((item) => item.classList.remove('is-active'));
           button.classList.add('is-active');

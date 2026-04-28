@@ -437,6 +437,8 @@ const navItems = [
       :global(.product-main-image) {
         width: 100%;
         min-height: 22rem;
+        padding: 0;
+        cursor: zoom-in;
       }
 
       :global(.product-main-image img) {
@@ -450,6 +452,63 @@ const navItems = [
         display: grid;
         gap: 0.8rem;
         grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      }
+
+      :global(.lightbox) {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+
+      :global(.lightbox[hidden]) {
+        display: none !important;
+      }
+
+      :global(.lightbox-backdrop) {
+        position: absolute;
+        inset: 0;
+        background: rgba(18, 14, 12, 0.84);
+        backdrop-filter: blur(4px);
+      }
+
+      :global(.lightbox-dialog) {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 980px);
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      :global(.lightbox-close) {
+        justify-self: end;
+        width: 3rem;
+        height: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 999px;
+        background: rgba(255, 252, 247, 0.92);
+        color: var(--text);
+        font-size: 1.8rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      :global(.lightbox-frame) {
+        border-radius: 22px;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+      }
+
+      :global(.lightbox-frame img) {
+        display: block;
+        width: 100%;
+        max-height: min(78vh, 980px);
+        object-fit: contain;
+        background: #fff;
       }
 
       :global(.thumb-button) {
