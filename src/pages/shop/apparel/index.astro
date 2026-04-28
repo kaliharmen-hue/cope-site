@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { apparelItems } from '../../../data/apparel';
+---
+
+<BaseLayout title="Shop Apparel">
+  <p class="eyebrow">Apparel</p>
+  <h1>Shop Apparel</h1>
+  <p class="section-intro">
+    The first apparel drop is starting to take shape, with early COPE and Agie tee designs now ready to preview.
+  </p>
+
+  <div class="shop-grid">
+    {apparelItems.map((item) => (
+      <article class="section-card shop-card">
+        <div class="shop-card-link">
+          <div class="media-frame shop-art shop-apparel-art">
+            <img src={item.image} alt={item.alt} />
+          </div>
+          <div class="shop-copy">
+            <h2>{item.title}</h2>
+            <div class="product-meta">
+              <p><strong>Status:</strong> {item.status}</p>
+            </div>
+            <p>{item.description}</p>
+            <p><a class="button secondary" href="/contact">Register interest</a></p>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</BaseLayout>

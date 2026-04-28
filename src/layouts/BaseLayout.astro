@@ -7,7 +7,14 @@ const { title } = Astro.props;
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/shop/', label: 'Shop' },
+  {
+    href: '/shop/',
+    label: 'Shop',
+    children: [
+      { href: '/shop/art/', label: 'Shop Art' },
+      { href: '/shop/apparel/', label: 'Shop Apparel' },
+    ],
+  },
   { href: '/murals', label: 'Murals' },
   { href: '/commissions', label: 'Commissions' },
   { href: '/about', label: 'About' },
@@ -92,6 +99,21 @@ const navItems = [
         gap: 0.85rem;
       }
 
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--muted);
+      }
+
+      .nav-link:hover {
+        color: var(--text);
+      }
+
       .menu-toggle {
         display: none;
         align-items: center;
@@ -119,13 +141,36 @@ const navItems = [
         margin-top: 0.22rem;
       }
 
-      .nav a {
+      .nav-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.55rem);
+        left: 0;
+        min-width: 12rem;
+        padding: 0.55rem;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fffaf3;
+        box-shadow: 0 18px 32px rgba(23, 20, 18, 0.1);
+        z-index: 30;
+      }
+
+      .nav-dropdown a {
+        display: block;
+        padding: 0.5rem 0.7rem;
+        border-radius: 10px;
         text-decoration: none;
         color: var(--muted);
       }
 
-      .nav a:hover {
+      .nav-dropdown a:hover {
+        background: rgba(23, 20, 18, 0.04);
         color: var(--text);
+      }
+
+      .nav-item:hover .nav-dropdown,
+      .nav-item:focus-within .nav-dropdown {
+        display: block;
       }
 
       .page-shell {
@@ -291,6 +336,10 @@ const navItems = [
         display: grid;
         gap: 1rem;
         margin-top: 2rem;
+      }
+
+      :global(.shop-overview-grid) {
+        margin-top: 1.25rem;
       }
 
       :global(.media-frame) {
@@ -698,9 +747,30 @@ const navItems = [
           gap: 0.35rem;
         }
 
-        .nav a {
+        .nav-item {
+          display: grid;
+          gap: 0.15rem;
+        }
+
+        .nav-link {
           padding: 0.08rem 0;
           font-size: 0.95rem;
+        }
+
+        .nav-dropdown {
+          display: grid;
+          position: static;
+          min-width: auto;
+          padding: 0 0 0 0.85rem;
+          border: 0;
+          border-radius: 0;
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .nav-dropdown a {
+          padding: 0.08rem 0;
+          font-size: 0.92rem;
         }
 
         .site-header.is-open .nav {
@@ -748,7 +818,16 @@ const navItems = [
         </button>
         <nav class="nav" id="site-nav" aria-label="Main navigation">
           {navItems.map((item) => (
-            <a href={item.href}>{item.label}</a>
+            <div class="nav-item">
+              <a class="nav-link" href={item.href}>{item.label}</a>
+              {item.children && (
+                <div class="nav-dropdown">
+                  {item.children.map((child) => (
+                    <a href={child.href}>{child.label}</a>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
       </div>
