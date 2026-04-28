@@ -99,18 +99,57 @@ const navItems = [
         gap: 0.85rem;
       }
 
-      .nav-item {
-        position: relative;
-        display: flex;
-        align-items: center;
-      }
-
       .nav-link {
         text-decoration: none;
         color: var(--muted);
       }
 
       .nav-link:hover {
+        color: var(--text);
+      }
+
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-group {
+        position: relative;
+      }
+
+      .nav-summary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .nav-summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .nav-summary::after {
+        content: '';
+        width: 0.45rem;
+        height: 0.45rem;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg) translateY(-1px);
+        transition: transform 140ms ease;
+      }
+
+      .nav-group[open] .nav-summary::after {
+        transform: rotate(-135deg) translateY(-1px);
+      }
+
+      .nav-summary:hover {
         color: var(--text);
       }
 
@@ -168,8 +207,7 @@ const navItems = [
         color: var(--text);
       }
 
-      .nav-item:hover .nav-dropdown,
-      .nav-item:focus-within .nav-dropdown {
+      .nav-group[open] .nav-dropdown {
         display: block;
       }
 
@@ -747,7 +785,8 @@ const navItems = [
           gap: 0.35rem;
         }
 
-        .nav-item {
+        .nav-item,
+        .nav-group {
           display: grid;
           gap: 0.15rem;
         }
@@ -755,6 +794,12 @@ const navItems = [
         .nav-link {
           padding: 0.08rem 0;
           font-size: 0.95rem;
+        }
+
+        .nav-summary {
+          justify-content: start;
+          font-size: 0.95rem;
+          padding: 0.08rem 0;
         }
 
         .nav-dropdown {
@@ -818,16 +863,21 @@ const navItems = [
         </button>
         <nav class="nav" id="site-nav" aria-label="Main navigation">
           {navItems.map((item) => (
-            <div class="nav-item">
-              <a class="nav-link" href={item.href}>{item.label}</a>
-              {item.children && (
+            item.children ? (
+              <details class="nav-group">
+                <summary class="nav-summary">{item.label}</summary>
                 <div class="nav-dropdown">
+                  <a href={item.href}>Shop Overview</a>
                   {item.children.map((child) => (
                     <a href={child.href}>{child.label}</a>
                   ))}
                 </div>
-              )}
-            </div>
+              </details>
+            ) : (
+              <div class="nav-item">
+                <a class="nav-link" href={item.href}>{item.label}</a>
+              </div>
+            )
           ))}
         </nav>
       </div>
@@ -849,6 +899,8 @@ const navItems = [
       const siteNav = document.getElementById('site-nav');
 
       if (header && menuToggle && siteNav) {
+        const navGroups = siteNav.querySelectorAll('.nav-group');
+
         menuToggle.addEventListener('click', () => {
           const isOpen = header.classList.toggle('is-open');
           menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
@@ -858,7 +910,14 @@ const navItems = [
           link.addEventListener('click', () => {
             header.classList.remove('is-open');
             menuToggle.setAttribute('aria-expanded', 'false');
+            navGroups.forEach((group) => group.removeAttribute('open'));
           });
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!header.contains(event.target)) {
+            navGroups.forEach((group) => group.removeAttribute('open'));
+          }
         });
       }
     </script>
