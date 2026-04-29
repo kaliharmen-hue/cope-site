@@ -38,18 +38,16 @@ const muralGallery = [
 
 <BaseLayout title={frontmatter.title}>
   <div class="product-stack">
-    <section class="editorial-split">
-      <div>
-        <div class="media-frame no-crop">
-          <img src="/images/murals/cope-home-mural-art.jpg" alt="Keith working on a mural design and the finished mural artwork" />
-        </div>
+    <section class="section-card compact-card">
+      <div class="media-frame no-crop brand-hero-image">
+        <img src="/images/murals/cope-home-mural-art.jpg" alt="Keith working on a mural design and the finished mural artwork" />
       </div>
+    </section>
 
-      <div>
-        <p class="meta-line">Southampton, UK</p>
-        <h1>{frontmatter.title}</h1>
-        <Content />
-      </div>
+    <section class="section-card compact-card">
+      <p class="meta-line">Southampton, UK</p>
+      <h1>{frontmatter.title}</h1>
+      <Content />
     </section>
 
     <section class="section-card compact-card">
