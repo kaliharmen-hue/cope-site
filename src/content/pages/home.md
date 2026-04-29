@@ -1,6 +1,6 @@
 ---
 title: Home
-heroHeading: Bold street-inspired art and style.
+heroHeading: Bold street-inspired art and style
 heroPrimaryCtaLabel: Shop Original Art
 heroPrimaryCtaHref: /shop/
 heroSecondaryCtaLabel: Enquire About a Mural
