@@ -5,7 +5,7 @@ heroPrimaryCtaLabel: Shop Original Art
 heroPrimaryCtaHref: /shop/
 heroSecondaryCtaLabel: Enquire About a Mural
 heroSecondaryCtaHref: /murals/
-intro: COPE is a Southampton-based brand creating street-inspired original art, custom murals, and apparel for people who want more colour, personality, and originality in their lives.
+intro: COPE is a Southampton-based brand creating street-inspired original artwork, custom murals, and apparel for people who want more colour, personality, and originality in their lives.
 artImpactHeading: Art with impact, not background noise.
 artImpactBodyOne: COPE is built around original work that brings street-art energy, modern-art influence, and strong visual personality into real spaces.
 artImpactBodyTwo: The aim is not to create generic decor, but statement pieces with identity.
