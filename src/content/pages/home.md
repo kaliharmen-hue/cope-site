@@ -15,7 +15,7 @@ muralsBodyTwo: From bold feature walls to more bespoke concepts, the focus is on
 commissionsHeading: Commissions
 commissionsBody: Selected commissions are available for people who want something personal, original, and built with the same colour-led approach that shapes the rest of the work.
 apparelHeading: Apparel
-apparelBody: Artist-designed apparel is part of the next stage of the brand, with limited drops planned once the first pieces are ready to show properly.
+apparelBody: The first COPE and Agie tee designs are now live to preview, with the opening apparel drop starting to take shape.
 journalHeading: Journal
 journalBody: The Journal will document new work, experiments, process, mural development, and behind-the-scenes updates as the studio grows.
 ---
