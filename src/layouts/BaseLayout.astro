@@ -656,6 +656,36 @@ const navItems = [
         color: var(--muted);
       }
 
+      :global(.gallery-grid) {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      :global(.gallery-card) {
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      :global(.gallery-button) {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: zoom-in;
+      }
+
+      :global(.gallery-frame) {
+        aspect-ratio: 4 / 5;
+        min-height: 14rem;
+      }
+
+      :global(.gallery-frame img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
       :global(.site-form) {
         display: grid;
         gap: 0.9rem;
@@ -759,6 +789,10 @@ const navItems = [
         :global(.contact-grid) {
           grid-template-columns: 0.9fr 1.1fr;
           align-items: start;
+        }
+
+        :global(.gallery-grid) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         :global(.product-layout) {

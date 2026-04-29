@@ -1,20 +1,139 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Content, { frontmatter } from '../content/pages/murals.md';
+
+const muralGallery = [
+  {
+    src: '/images/murals/mural-blank-wall.jpg',
+    alt: 'Blank wall before a mural is started',
+    caption: 'Blank wall',
+  },
+  {
+    src: '/images/murals/mural-in-progress.jpg',
+    alt: 'Keith working on a mural in progress',
+    caption: 'In progress',
+  },
+  {
+    src: '/images/murals/mural-finished-piece.jpg',
+    alt: 'Finished futuristic comic style mural artwork',
+    caption: 'Finished piece',
+  },
+  {
+    src: '/images/murals/mural-japanese-style.png',
+    alt: 'Japanese style mural concept or finished wall artwork',
+    caption: 'Japanese style',
+  },
+  {
+    src: '/images/murals/mural-oak-and-olive-cafe.png',
+    alt: 'Oak and Olive Cafe mural example',
+    caption: 'Oak and Olive Cafe',
+  },
+  {
+    src: '/images/murals/mural-saints-pub.jpg',
+    alt: 'The Saints Pub Millbrook mural example',
+    caption: 'The Saints Pub',
+  },
+];
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <section class="editorial-split">
-    <div>
-      <div class="media-frame no-crop">
-        <img src="/images/murals/cope-home-mural-art.jpg" alt="Keith working on a mural design and the finished mural artwork" />
+  <div class="product-stack">
+    <section class="editorial-split">
+      <div>
+        <div class="media-frame no-crop">
+          <img src="/images/murals/cope-home-mural-art.jpg" alt="Keith working on a mural design and the finished mural artwork" />
+        </div>
+      </div>
+
+      <div>
+        <p class="meta-line">Southampton, UK</p>
+        <h1>{frontmatter.title}</h1>
+        <Content />
+      </div>
+    </section>
+
+    <section class="section-card compact-card">
+      <h2>Mural gallery</h2>
+      <p class="section-intro">
+        A selection of mural work, concept development, and finished pieces to show how projects move from idea to
+        completed wall artwork.
+      </p>
+
+      <div class="gallery-grid" aria-label="Mural gallery">
+        {muralGallery.map((image, index) => (
+          <article class="gallery-card">
+            <button
+              type="button"
+              class="gallery-button"
+              data-gallery-src={image.src}
+              data-gallery-alt={image.alt}
+              aria-label={`Open larger image: ${image.caption}`}
+            >
+              <span class="media-frame gallery-frame">
+                <img src={image.src} alt={image.alt} loading={index > 2 ? 'lazy' : undefined} />
+              </span>
+            </button>
+            <span class="thumb-caption">{image.caption}</span>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <div class="lightbox" id="mural-lightbox" hidden>
+    <div class="lightbox-backdrop" data-mural-lightbox-close></div>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Larger view of mural image">
+      <button type="button" class="lightbox-close" id="mural-lightbox-close" aria-label="Close larger mural image view">×</button>
+      <div class="lightbox-frame">
+        <img id="mural-lightbox-image" src="" alt="" />
       </div>
     </div>
+  </div>
 
-    <div>
-      <p class="meta-line">Southampton, UK</p>
-      <h1>{frontmatter.title}</h1>
-      <Content />
-    </div>
-  </section>
+  <script is:inline>
+    const muralLightbox = document.getElementById('mural-lightbox');
+    const muralLightboxImage = document.getElementById('mural-lightbox-image');
+    const muralLightboxClose = document.getElementById('mural-lightbox-close');
+    const muralCloseElements = document.querySelectorAll('[data-mural-lightbox-close]');
+    const muralButtons = document.querySelectorAll('[data-gallery-src]');
+
+    const openMuralLightbox = (src, alt) => {
+      if (!muralLightbox || !muralLightboxImage) return;
+
+      muralLightboxImage.setAttribute('src', src);
+      muralLightboxImage.setAttribute('alt', alt || '');
+      muralLightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMuralLightbox = () => {
+      if (!muralLightbox) return;
+
+      muralLightbox.hidden = true;
+      document.body.style.overflow = '';
+    };
+
+    muralButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const src = button.getAttribute('data-gallery-src');
+        const alt = button.getAttribute('data-gallery-alt') || '';
+        if (!src) return;
+        openMuralLightbox(src, alt);
+      });
+    });
+
+    muralCloseElements.forEach((element) => {
+      element.addEventListener('click', closeMuralLightbox);
+    });
+
+    if (muralLightboxClose) {
+      muralLightboxClose.addEventListener('click', closeMuralLightbox);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && muralLightbox && !muralLightbox.hidden) {
+        closeMuralLightbox();
+      }
+    });
+  </script>
 </BaseLayout>
