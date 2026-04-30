@@ -1,31 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Content, { frontmatter } from '../content/pages/murals.md';
-import { featuredMuralGallery } from '../data/murals';
+import { featuredMuralGallery, processMuralGallery } from '../data/murals';
 ---
 
-<BaseLayout title={frontmatter.title}>
+<BaseLayout title="Mural Portfolio">
   <div class="product-stack">
-    <section class="section-card compact-card">
-      <div class="media-frame no-crop brand-hero-image">
-        <img src="/images/murals/cope-home-mural-art.jpg" alt="Keith working on a mural design and the finished mural artwork" />
-      </div>
-    </section>
+    <a class="back-link" href="/murals">← Back to murals</a>
 
     <section class="section-card compact-card">
-      <p class="meta-line">Southampton, UK</p>
-      <h1>{frontmatter.title}</h1>
-      <Content />
-    </section>
-
-    <section class="section-card compact-card">
-      <h2>Featured mural work</h2>
+      <p class="meta-line">Mural portfolio</p>
+      <h1>Mural portfolio</h1>
       <p class="section-intro">
-        A curated selection of mural concepts and completed pieces that show the range of wall-based work COPE can
-        bring into a space.
+        A broader look at concept-led mural work, finished wall pieces, and the process behind how ideas move from
+        surface to completed artwork.
+      </p>
+    </section>
+
+    <section class="section-card compact-card">
+      <h2>Featured wall work</h2>
+      <p class="section-intro">
+        Finished examples and concept-driven pieces that show the style, linework, and visual atmosphere COPE brings
+        into a space.
       </p>
 
-      <div class="gallery-grid" aria-label="Featured mural gallery">
+      <div class="gallery-grid" aria-label="Mural portfolio gallery">
         {featuredMuralGallery.map((image, index) => (
           <article class="gallery-card">
             <button
@@ -43,10 +41,36 @@ import { featuredMuralGallery } from '../data/murals';
           </article>
         ))}
       </div>
+    </section>
 
-      <div class="button-row">
-        <a class="button secondary" href="/mural-portfolio/">View more mural work</a>
+    <section class="section-card compact-card">
+      <h2>Process snapshots</h2>
+      <p class="section-intro">
+        A few behind-the-scenes images showing how a mural starts to take shape before the finished piece is complete.
+      </p>
+
+      <div class="gallery-grid process-grid" aria-label="Mural process gallery">
+        {processMuralGallery.map((image) => (
+          <article class="gallery-card">
+            <button
+              type="button"
+              class="gallery-button"
+              data-gallery-src={image.src}
+              data-gallery-alt={image.alt}
+              aria-label={`Open larger image: ${image.caption}`}
+            >
+              <span class="media-frame gallery-frame">
+                <img src={image.src} alt={image.alt} loading="lazy" />
+              </span>
+            </button>
+            <span class="thumb-caption">{image.caption}</span>
+          </article>
+        ))}
       </div>
+
+      <p class="form-note">
+        Short process clips or GIFs can sit naturally in this section later without making the main Murals page feel overloaded.
+      </p>
     </section>
   </div>
 

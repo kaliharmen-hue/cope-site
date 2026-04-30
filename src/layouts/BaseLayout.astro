@@ -661,6 +661,10 @@ const navItems = [
         gap: 1rem;
       }
 
+      :global(.process-grid) {
+        align-items: start;
+      }
+
       :global(.gallery-card) {
         display: grid;
         gap: 0.5rem;
@@ -898,6 +902,10 @@ const navItems = [
       @media (min-width: 1040px) {
         :global(.gallery-grid) {
           grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        :global(.process-grid) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
     </style>
