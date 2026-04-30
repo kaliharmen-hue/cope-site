@@ -43,35 +43,37 @@ import { featuredMuralGallery, processMuralGallery } from '../data/murals';
       </div>
     </section>
 
-    <section class="section-card compact-card">
-      <h2>Process snapshots</h2>
-      <p class="section-intro">
-        A few behind-the-scenes images showing how a mural starts to take shape before the finished piece is complete.
-      </p>
+    {processMuralGallery.length > 0 && (
+      <section class="section-card compact-card">
+        <h2>Process snapshots</h2>
+        <p class="section-intro">
+          A few behind-the-scenes images showing how a mural starts to take shape before the finished piece is complete.
+        </p>
 
-      <div class="gallery-grid process-grid" aria-label="Mural process gallery">
-        {processMuralGallery.map((image) => (
-          <article class="gallery-card">
-            <button
-              type="button"
-              class="gallery-button"
-              data-gallery-src={image.src}
-              data-gallery-alt={image.alt}
-              aria-label={`Open larger image: ${image.caption}`}
-            >
-              <span class="media-frame gallery-frame">
-                <img src={image.src} alt={image.alt} loading="lazy" />
-              </span>
-            </button>
-            <span class="thumb-caption">{image.caption}</span>
-          </article>
-        ))}
-      </div>
+        <div class="gallery-grid process-grid" aria-label="Mural process gallery">
+          {processMuralGallery.map((image) => (
+            <article class="gallery-card">
+              <button
+                type="button"
+                class="gallery-button"
+                data-gallery-src={image.src}
+                data-gallery-alt={image.alt}
+                aria-label={`Open larger image: ${image.caption}`}
+              >
+                <span class="media-frame gallery-frame">
+                  <img src={image.src} alt={image.alt} loading="lazy" />
+                </span>
+              </button>
+              <span class="thumb-caption">{image.caption}</span>
+            </article>
+          ))}
+        </div>
 
-      <p class="form-note">
-        Short process clips or GIFs can sit naturally in this section later without making the main Murals page feel overloaded.
-      </p>
-    </section>
+        <p class="form-note">
+          Short process clips or GIFs can sit naturally in this section later without making the main Murals page feel overloaded.
+        </p>
+      </section>
+    )}
   </div>
 
   <div class="lightbox" id="mural-lightbox" hidden>

@@ -27,15 +27,4 @@ export const featuredMuralGallery: MuralImage[] = [
   },
 ];
 
-export const processMuralGallery: MuralImage[] = [
-  {
-    src: '/images/murals/mural-blank-wall.jpg',
-    alt: 'Blank wall before a mural is started',
-    caption: 'Blank wall',
-  },
-  {
-    src: '/images/murals/mural-in-progress.jpg',
-    alt: 'Keith working on a mural in progress',
-    caption: 'In progress',
-  },
-];
+export const processMuralGallery: MuralImage[] = [];
